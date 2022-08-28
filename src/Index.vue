@@ -3,6 +3,8 @@ import { reactive } from 'vue'
 import PrimaryButton from './components/PrimaryButton.vue'
 import SecondaryButton from './components/SecondaryButton.vue'
 import Checkboxes from './components/Checkboxes.vue'
+import Toggle from './components/Toggle.vue'
+import Radios from './components/Radios.vue'
 
 const colors = reactive({ 
   primary: "#4f46e5",
@@ -46,7 +48,11 @@ const colors = reactive({
   <div class="space-x-4">
     <PrimaryButton :label="colors.label" :primary="colors.primary" :secondary="colors.secondary" />
     <SecondaryButton :label="colors.label" :primary="colors.primary" :secondary="colors.secondary" />
+    <Toggle :enabled="true" :primary="colors.primary" :secondary="colors.secondary" />
+  </div>
+  <div class="grid grid-cols-2 gap-4">
     <Checkboxes :primary="colors.primary" :secondary="colors.secondary" />
+    <Radios :primary="colors.primary" :secondary="colors.secondary" />
   </div>
 </div>
 </template>
