@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4 py-16 bg-gray-100 rounded-md">
+  <div class="w-full px-4 py-16 bg-card rounded-md">
     <div class="mx-auto w-full max-w-md">
       <RadioGroup v-model="selected">
         <RadioGroupLabel class="sr-only">Server size</RadioGroupLabel>
@@ -69,7 +69,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import {
   RadioGroup,
   RadioGroupLabel,
@@ -78,6 +78,20 @@ import {
 } from '@headlessui/vue'
 
 const props = defineProps(['primary', 'secondary', 'label'])
+
+const hexToRgba = computed(() => {
+   let hex   = props.primary.replace('#', '');
+   let alpha = '0.05';
+   var r = parseInt(hex.length == 3 ? hex.slice(0, 1).repeat(2) : hex.slice(0, 2), 16);
+   var g = parseInt(hex.length == 3 ? hex.slice(1, 2).repeat(2) : hex.slice(2, 4), 16);
+   var b = parseInt(hex.length == 3 ? hex.slice(2, 3).repeat(2) : hex.slice(4, 6), 16);
+  //  if ( alpha ) {
+      return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+  //  }
+  //  else {
+      // return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+  //  }
+})
 
 const plans = [
   {
@@ -109,5 +123,8 @@ const selected = ref(plans[0])
 }
 .active {
 	box-shadow: 0 0 0 var(--tw-ring-offset-width) v-bind('props.primary'), var(--tw-ring-shadow);
+}
+.bg-card {
+  background-color: v-bind('hexToRgba');
 }
 </style>

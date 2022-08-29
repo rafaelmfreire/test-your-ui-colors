@@ -5,6 +5,8 @@ import SecondaryButton from './components/SecondaryButton.vue'
 import Checkboxes from './components/Checkboxes.vue'
 import Toggle from './components/Toggle.vue'
 import Radios from './components/Radios.vue'
+import Pill from './components/Pill.vue'
+import PillInverted from './components/PillInverted.vue'
 
 const colors = reactive({ 
   primary: "#4f46e5",
@@ -49,6 +51,8 @@ const colors = reactive({
     <PrimaryButton :label="colors.label" :primary="colors.primary" :secondary="colors.secondary" />
     <SecondaryButton :label="colors.label" :primary="colors.primary" :secondary="colors.secondary" />
     <Toggle :enabled="true" :primary="colors.primary" :secondary="colors.secondary" />
+    <Pill :label="colors.label" :primary="colors.primary" :secondary="colors.secondary" />
+    <PillInverted :label="colors.label" :primary="colors.primary" :secondary="colors.secondary" />
   </div>
   <div class="grid grid-cols-2 gap-4">
     <Checkboxes :primary="colors.primary" :secondary="colors.secondary" />
