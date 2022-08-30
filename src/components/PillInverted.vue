@@ -1,5 +1,8 @@
 <template>
-	<span class="inline-flex justify-center py-1 px-3 border border-transparent shadow-sm text-xs leading-4 font-bold rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-opacity duration-300 ease-in-out hover:cursor-default">{{ label }}</span>
+	<div class="relative inline-flex justify-center items-center py-1 pr-4 pl-7 border border-transparent shadow-sm text-xs leading-4 font-bold rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-opacity duration-300 ease-in-out hover:cursor-default">
+        <span class="absolute left-3 h-2 w-2 rounded-full"></span>
+        {{ label }}
+    </div>
 </template>
 
 <script setup>
@@ -44,12 +47,16 @@ const hexToRgba = computed(() => {
 })
 </script>
 <style scoped>
-span {
+div {
 	background: v-bind('hexToRgba');
 	color: v-bind('props.primary');
 }
 
-span:hover {
+span {
+    background: v-bind('props.primary');
+}
+
+div:hover {
 	opacity: 85%;
 }
 </style>

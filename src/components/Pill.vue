@@ -1,5 +1,5 @@
 <template>
-	<span class="inline-flex justify-center py-1 px-3 border shadow-sm text-xs font-bold leading-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-opacity duration-300 ease-in-out hover:cursor-default">{{ label }}</span>
+	<span class="inline-flex justify-center py-1 px-3 border shadow-sm text-xs font-bold leading-3 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-opacity duration-300 ease-in-out hover:cursor-default">{{ label }}</span>
 </template>
 
 <script setup>
@@ -10,8 +10,8 @@ const props = defineProps(['primary', 'secondary', 'label'])
 </script>
 <style scoped>
 span {
-	background: v-bind('props.secondary');
-	color: v-bind('props.primary');
+	background: v-bind('props.primary');
+	color: v-bind('props.secondary');
 	border-color: v-bind('props.primary');
 }
 
